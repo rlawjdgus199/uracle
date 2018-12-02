@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- namespace 설정 -->
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+	<!-- 삽입을 위한 sql추가 -->
+	<insert id="insert" parameterType="BoardVO"> insert into board(id, title,
+		body, regDate, writer) values(#{id}, #{title}, #{body}, #{regDate},
+		#{writer})
+	</insert>
+	<!-- 전체 목록을 가져오는 sql -->
+<select id="getList" resultType="BoardVO"> 
+	select * from board 
+</select>
+	
+</mapper>
