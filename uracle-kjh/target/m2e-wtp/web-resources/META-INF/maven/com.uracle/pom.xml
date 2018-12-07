@@ -184,5 +184,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	<artifactId>jh</artifactId>
+	<artifactId>/</artifactId>
 </project>
