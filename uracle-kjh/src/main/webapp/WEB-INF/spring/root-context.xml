@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MyBatis 연동을 위한 bean생성코드 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<bean id="dataSourceSpied" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+	    <property name="url" value="jdbc:mysql://mydatabase.cejm6ac2yijc.us-east-2.rds.amazonaws.com/mariadb?useUnicode=yes&amp;characterEncoding=UTF8&amp;autoReconnect=true&amp;autoReconnectForPools=true"></property>
+        <property name="username" value="mariadbuser"></property>
+        <property name="password" value="uracle3479!!"></property>
+	</bean>
+	    
+	 
+	<bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+	    <constructor-arg ref="dataSourceSpied" />
+	    <property name="logFormatter">
+	        <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+	            <property name="loggingType" value="MULTI_LINE" />
+	            <property name="sqlPrefix" value="SQL:::" />
+	        </bean>
+	    </property>
+	</bean>
+	
+	
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 데이터베이스 정보 -->
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+	    <property name="url" value="jdbc:mysql://mydatabase.cejm6ac2yijc.us-east-2.rds.amazonaws.com/mariadb?useUnicode=yes&amp;characterEncoding=UTF8&amp;autoReconnect=true&amp;autoReconnectForPools=true"></property>
+        <property name="username" value="mariadbuser"></property>
+        <property name="password" value="uracle3479!!"></property>
+    </bean>  -->
+    
+    <!-- MyBatis를 xml을 이용해서 연동할 수 있는 객체 생성 -->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
+	
+		<!-- 데이터베이스 접속 정보설정 -->
+		<property name="dataSource" ref="dataSource" />
+		
+		<!-- 환경설정 파일 위치 지정 -->
+		<property value="classpath:/mybatis/mybatis-config.xml" name="configLocation" />
+		
+		<!-- 매퍼파일 위치 지정 -->
+		<property value="classpath:/mybatis/mappers/*.xml" name="mapperLocations" />
+	</bean>
+
+	<!-- MyBatis 연동 객체 생성 -->
+	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession" destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+
+</beans>
