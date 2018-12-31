@@ -32,9 +32,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  <select id="detail" parameterType="hashMap" resultType="BoardVO">
 <![CDATA[
         SELECT
+        	id,
             title,
             body,
-            writer
+            writer,
+            regDate,
+            redcnt
         FROM
             board
         WHERE
