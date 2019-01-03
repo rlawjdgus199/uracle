@@ -96,7 +96,7 @@ public class BoardController {
 	}
 	
 	//게시글 삭제처리 요청의 메소드
-	@RequestMapping(value = "delete", method = RequestMethod.GET)
+	@RequestMapping(value = "delete", method = RequestMethod.POST)
 	public String remove(@RequestParam("id") int id, RedirectAttributes rttr){
 		boardService.delete(id);
 		rttr.addFlashAttribute("msg", "게시글 삭제에 성공하셨습니다.");

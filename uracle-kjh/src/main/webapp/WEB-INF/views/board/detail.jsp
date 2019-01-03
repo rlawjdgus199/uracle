@@ -9,7 +9,7 @@
 <body>
 	<%@ include file="../include/header.jsp"%>
 	<section class="content">
-		<!-- <form id="form" method="get"> -->
+		 <form id="form" method="POST"> 
 			<div class="box">
 				<input type="hidden" name="id" value="${vo.id }"/>
 
@@ -39,23 +39,25 @@
 					<button class="btn btn-primary">목록</button>
 				</div>
 			</div>
-		<!-- </form> -->
+		</form> 
 	</section>
 	<%@ include file="../include/footer.jsp"%>
 	<script>
 		$(function() {
+			
 			//메인 버튼을 눌렀을 때 처리
 			$(".btn-success").click(function() {
-				location.href = "/jh/board/home.do";
+				location.href = "home";
 			});
 			//목록 버튼을 눌렀을 때 처리
 			$(".btn-primary").click(function() {
-				location.href = "/jh/board/list.do";
+				location.href = "list";
 			});
 			//수정 버튼을 눌렀을 때 처리
 			$(".btn-warning").click(function() {
 				//location.href = "update?id=" + ${vo.id};
 				$('#form').attr('action', 'update');
+				$('#form').attr('method', 'GET');
 				$('#form').submit();
 			});
 			//삭제 버튼을 눌렀을 때 처리

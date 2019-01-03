@@ -52,6 +52,8 @@
 				});
 				//수정 완료 버튼을 눌렀을 때 처리
 				$(".btn-success").click(function() {
+					$('#updateForm').attr('action', 'update');
+					$('#updateForm').attr('method','POST');
 					$("#updateForm").submit();
 				});
 			})
