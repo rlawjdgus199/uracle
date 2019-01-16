@@ -9,7 +9,7 @@
 <body>
 	<%@ include file="../include/header.jsp"%>
 	<section class="content">
-		 <form id="form" method="POST"> 
+		 <form id="form" > 
 			<div class="box">
 				<input type="hidden" name="id" value="${vo.id }"/>
 
@@ -33,7 +33,7 @@
 					</div>
 				</div>
 				<div class="box-footer">
-					<button class="btn btn-success">메인</button>
+					 <button class="btn btn-success" >메인</button> 
 					<button class="btn btn-warning">수정</button>
 					<button class="btn btn-danger">삭제</button>
 					<button class="btn btn-primary">목록</button>
@@ -42,31 +42,34 @@
 		</form> 
 	</section>
 	<%@ include file="../include/footer.jsp"%>
-	<script>
-		$(function() {
-			
+	 <script>
+		 $(function() {
 			//메인 버튼을 눌렀을 때 처리
-			$(".btn-success").click(function() {
-				location.href = "home";
-			});
+			$('.btn-success').clicdk(function() {
+						/* location.href = "board/home"; */
+				$('#form').attr('action', 'home');
+					});
 			//목록 버튼을 눌렀을 때 처리
+		
 			$(".btn-primary").click(function() {
-				location.href = "list";
+		  			 $('#form').attr('action', 'list');
 			});
 			//수정 버튼을 눌렀을 때 처리
 			$(".btn-warning").click(function() {
 				//location.href = "update?id=" + ${vo.id};
-				$('#form').attr('action', 'update');
-				$('#form').attr('method', 'GET');
+				 $('#form').attr('method','post');
+				$('#form').attr('action', 'updateView');
 				$('#form').submit();
 			});
 			//삭제 버튼을 눌렀을 때 처리
 			$(".btn-danger").click(function() {
+				 $('#form').attr('method','post');
 				$('#form').attr('action', 'delete');
 				$('#form').submit();
 			});
 		})
-	</script>
+	</script> 
+	
 
 </body>
 </html>

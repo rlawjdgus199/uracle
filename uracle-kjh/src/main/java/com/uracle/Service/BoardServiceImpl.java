@@ -32,8 +32,8 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public BoardVO detail(int id) {
 		//조회수 1 증가하는 메소드 호출
-/*		boardDao.updateReadCnt(id);
-*/		return boardDao.detail(id);
+		boardDao.updateReadCnt(id);
+		return boardDao.detail(id);
 	}
 
 	// 조회수 증가 제외하고 detail과 같음
@@ -46,7 +46,7 @@ public class BoardServiceImpl implements BoardService {
 	//게시글 수정보기 처리를 위한 메소드 구현
 	@Override
 	public BoardVO updateView(int id) {
-		return boardDao.detail(id);
+	 return boardDao.detail(id);
 	}
 
 	//게시글 수정처리를 위한 메소드 구현

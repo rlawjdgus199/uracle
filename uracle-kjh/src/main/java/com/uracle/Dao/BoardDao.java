@@ -18,12 +18,12 @@ public interface BoardDao {
 		public BoardVO detail(int id);
 
 		//글번호를 가지고 조회수를 1증가시키는 메소드
-/*		public void updateReadCnt(int id);
-*/		
+    	public void updateReadCnt(int id);	
 		
 		//게시글 수정처리를 위한 메소드
 		public void update(BoardVO vo);
-
+		
+	
 		//글번호를 가지고 게시물을 삭제하는 메소드
 		public void delete(int id);
 

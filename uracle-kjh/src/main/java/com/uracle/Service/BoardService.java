@@ -18,8 +18,8 @@ public interface BoardService {
 //글 번호를 가지고 하나의 게시글을 가져오는 메소드
 public BoardVO detail(int id);
 	
-/*	public BoardVO updateReadCnt(int id);
-*/	
+	/*public BoardVO updateReadCnt(int id);*/
+	
 
 //게시글 수정보기 처리를  위한 메소드 선언
 public BoardVO updateView(int id);

@@ -20,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.uracle.Service.BoardService;
 import com.uracle.VO.BoardVO;
 
+
 @Controller
 @RequestMapping(value = "board/")
 public class BoardController {
@@ -69,16 +70,14 @@ public class BoardController {
 		
 	}
 	//수정하기보기 처리 요청의 메소드
-	@RequestMapping(value = "update", method = RequestMethod.GET)
-	public void modifyGET(@RequestParam("id") int id, Model model) {
+	@RequestMapping(value = "updateView", method = RequestMethod.POST)
+	public String modifyGET(@RequestParam("id") int id, Model model) {
 		model.addAttribute("vo", boardService.updateView(id));
+		return "board/update";
+		
+		
 	}
 
-	
-	/*@RequestMapping(value = "update", method = RequestMethod.GET)
-	public void modifyGET(@RequestParam("id") int id, Model model) {
-		model.addAttribute("vo", boardService.updateView(id));
-	}*/
 
 	//수정하기 처리 요청의 메소드
 	@RequestMapping(value = "update", method = RequestMethod.POST)
@@ -102,7 +101,7 @@ public class BoardController {
 		rttr.addFlashAttribute("msg", "게시글 삭제에 성공하셨습니다.");
 		return "redirect:/board/list";
 	}
-
+	
 
 
 			

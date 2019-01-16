@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
  	<!-- 글번호를 가지고 조회수를 1증가 시키는 sql. --> 		
- 	<update id="updateReadcnt" parameterType="hashMap">
+ 	<update id="updateReadCnt" parameterType="hashMap">
     <![CDATA[
         UPDATE board
         SET

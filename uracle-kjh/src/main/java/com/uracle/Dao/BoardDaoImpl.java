@@ -28,16 +28,17 @@ public class BoardDaoImpl implements BoardDao {
 	public BoardVO detail(int id) {
 		return sqlSession.selectOne(NAMESPACE+ ".detail",id);
 	}
-/*	@Override
+	@Override
 	public void updateReadCnt(int id) {
 		sqlSession.update(NAMESPACE+ ".updateReadCnt", id);
 	}
-*/
+
 	
 	@Override
 	public void update(BoardVO vo) {
 		sqlSession.update(NAMESPACE+".update", vo);
 	}
+	
 	
 	@Override
 	public void delete(int id) {

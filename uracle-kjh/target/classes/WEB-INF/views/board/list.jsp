@@ -29,9 +29,9 @@
 					<th width="16%">조회수</th>
 					
 				</tr>
-				<c:forEach var="vo" items="${list}">
+				<c:forEach var="vo" items="${list}" varStatus="status">
 					<tr>
-						<td align="right">${vo.id}&nbsp;</td>
+						<td align="right">${status.count}&nbsp;</td>
 						<td>&nbsp; <a href="detail?id=${vo.id}">${vo.title}</a></td>
 						<td>&nbsp;${vo.writer}</td>
 						
@@ -44,12 +44,12 @@
 		</div>
 		<div class="box-footer">
 			<div class="text-center">
-				<button id='mainBtn' class="btn-primary"><a href="home">메인으로</a></button>
+				<button id='mainBtn' class="btn-primary">메인으로</button>
 			</div>
 			<script>
 				$(function() {
 					$('#mainBtn').on("click", function(event) {
-						location.href = "../";
+						location.href = "home";
 					});
 				});
 			</script>
