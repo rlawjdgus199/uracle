@@ -3,6 +3,8 @@ package com.uracle.Dao;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import com.uracle.VO.BoardVO;
 
 
@@ -26,7 +28,8 @@ public interface BoardDao {
 	
 		//글번호를 가지고 게시물을 삭제하는 메소드
 		public void delete(int id);
-
+		
+	
 
 	
 	

@@ -44,4 +44,8 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
+	<!-- 5분동안 세션을 조작하지 않으면 세션을 초기화 -->
+	<session-config>
+		<session-timeout>5</session-timeout>
+	</session-config>
 </web-app>

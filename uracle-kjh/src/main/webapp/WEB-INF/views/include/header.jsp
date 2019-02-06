@@ -24,7 +24,7 @@
 	<div class="wrapper">
 		<header class="main-header">
 			<div class="page-header">
-				<h1>Spring MVC 게시판</h1>
+				<h1>유라클 게시판</h1>
 			</div>
 		</header>
 	</div>

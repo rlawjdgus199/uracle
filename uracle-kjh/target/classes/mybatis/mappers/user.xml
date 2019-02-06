@@ -7,10 +7,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 로그인 처리를 위한 sql -->
 <select id="login" resultType="UserVo" parameterType="UserVo">
 
-<![CDATA[ select userid,name
+<![CDATA[ select userid
 from member
 where userid=#{userid} and pw=#{pw}	]]>
 
 </select>
+
+	<insert id="member" parameterType="UserVo">
+	<!-- <![CDATA[]> 안에 있는 쿼리를 평문으로 읽음 --> 
+	<![CDATA[
+		insert into 
+			member(userid, name, pw)
+		values(
+			#{userid}, #{name}, #{pw}
+		  )
+	]]>
+	</insert>
 
 </mapper>

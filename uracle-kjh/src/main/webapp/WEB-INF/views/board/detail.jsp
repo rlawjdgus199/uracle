@@ -33,7 +33,6 @@
 					</div>
 				</div>
 				<div class="box-footer">
-					 <button class="btn btn-success" >메인</button> 
 					<button class="btn btn-warning">수정</button>
 					<button class="btn btn-danger">삭제</button>
 					<button class="btn btn-primary">목록</button>
@@ -44,13 +43,7 @@
 	<%@ include file="../include/footer.jsp"%>
 	 <script>
 		 $(function() {
-			//메인 버튼을 눌렀을 때 처리
-			$('.btn-success').clicdk(function() {
-						/* location.href = "board/home"; */
-				$('#form').attr('action', 'home');
-					});
 			//목록 버튼을 눌렀을 때 처리
-		
 			$(".btn-primary").click(function() {
 		  			 $('#form').attr('action', 'list');
 			});

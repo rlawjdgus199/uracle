@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ page session="true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,7 @@
 
 				<div class="form-group">
 					<label>작성자</label> 
-					<input type="text" name="writer" class="form-control" placeholder="작성자를 입력하세요">
+					<input type="text" name="writer" class="form-control" value="${login.userid}"readonly="readonly">
 				</div>
 			</div>
 

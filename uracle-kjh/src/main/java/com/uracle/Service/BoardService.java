@@ -7,11 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.uracle.VO.BoardVO;
+import com.uracle.VO.UserVo;
+
 
 
 /*게시글 삽입을 위한 메소드 선언*/
 public interface BoardService {
 	public void insert(BoardVO boardVO)  throws Exception;
+	/*public void insert( HttpServletRequest request) throws Exception;*/
 	/*전체목록 보기 처리를 위한 메소드 선언*/
 	public List<BoardVO> list();
 	
@@ -30,9 +33,5 @@ public void update(BoardVO boardVO)  throws Exception;
 
 //글번호를 가지고 게시글을 삭제하는 메소드
 public void delete(int id);
-
-
-
-	
 
 }

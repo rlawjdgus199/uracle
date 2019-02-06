@@ -19,6 +19,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.uracle.Service.BoardService;
 import com.uracle.VO.BoardVO;
+import com.uracle.Service.UserService;
+import com.uracle.VO.UserVo;
 
 
 @Controller
@@ -32,12 +34,30 @@ public class BoardController {
 	public String insert(Model model) {
 		return "board/register";
 	}
-
+/*
 	@RequestMapping(value = "register", method = RequestMethod.POST)
-	public String registPOST(@ModelAttribute BoardVO boardVO, RedirectAttributes rttr) {
+	public String registPOST(@ModelAttribute BoardVO boardVO,HttpServletRequest request, RedirectAttributes rttr) {
 		
 		try {
 			System.out.println(boardVO);
+			boardService.insert(boardVO);
+			boardService.insert(boardVO);
+			rttr.addFlashAttribute("msg", "게시글 작성에 성공하셨습니다.");
+		} catch (Exception e) {
+			rttr.addFlashAttribute("msg", "게시글 작성에 실패하셨습니다.");
+			e.printStackTrace();
+		}
+		
+		return "redirect:/board/list";
+	}*/
+	
+
+	@RequestMapping(value = "register", method = RequestMethod.POST)
+	public String registPOST(BoardVO boardVO, RedirectAttributes rttr) {
+		
+		try {
+			System.out.println(boardVO);
+			/*boardService.insert(boardVO);*/
 			boardService.insert(boardVO);
 			rttr.addFlashAttribute("msg", "게시글 작성에 성공하셨습니다.");
 		} catch (Exception e) {
@@ -49,15 +69,19 @@ public class BoardController {
 	}
 	//목록보기 처리 요청의 메소드
 	@RequestMapping(value = "list", method = RequestMethod.GET)
-	public String list(Model model) {
+	public String list(UserVo vo,Model model, HttpSession session, HttpServletRequest request) {
+		HttpSession httpSession=request.getSession(true);
+		UserVo userVo=(UserVo) httpSession.getAttribute("login");
+		/*userVo.getUserid();*/
 		List<BoardVO> list = boardService.list();
+		if(userVo==null) {
+			return "redirect:../user/login";
+		}
+		else {
 		model.addAttribute("list", list);
 		return "board/list";
-	}
-	//메인 페이지 처리 요청의 메소드
-	@RequestMapping(value = "home", method = RequestMethod.GET)
-	public String home(Model model) {
-		return "board/home";
+		}
+		
 	}
 	
 	//상세보기 처리 요청의 메소드

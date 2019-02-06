@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page session="true" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,23 +45,34 @@
 		</div>
 		<div class="box-footer">
 			<div class="text-center">
-				<button id='mainBtn' class="btn-primary">메인으로</button>
+				<button id='writeBtn' class="btn-primary">글쓰기</button>
+				<button id='logout' class="btn-primary">로그아웃</button>
 			</div>
+			
 			<script>
 				$(function() {
-					$('#mainBtn').on("click", function(event) {
-						location.href = "home";
+					$('#writeBtn').on("click", function(event) {
+						location.href = "register";
 					});
+					$('#logout').on("click", function(event) {
+						
+						location.href = "logout";
+				});
 				});
 			</script>
 		</div>
 	</div>
 	<%@include file="../include/footer.jsp"%>
+	<%-- <p>세션이름: <b>${sessionScope.login.userid}</b></p> --%>
+	
 </body>
+
 <style>
 .table th {
 	text-align: center;
 }
 </style>
+
 </html>
+
 

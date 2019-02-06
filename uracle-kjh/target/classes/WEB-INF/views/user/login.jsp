@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page session="true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +32,7 @@
 								value="로그인" />
 						</div>
 						<div class="form-group">
-							<a href="" class="btn btn-default btn-block m-t-md">회원가입</a>
+							<a href="member" class="btn btn-default btn-block m-t-md">회원가입</a>
 						</div>
 
 						<div class="form-group">

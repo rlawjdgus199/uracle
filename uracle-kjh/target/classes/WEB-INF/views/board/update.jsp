@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page session="true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,16 +37,11 @@
 
 			<div class="box-footer">
 				<button class="btn btn-success">수정완료</button>
-				<button class="btn btn-warning">메인으로</button>
 				<button class="btn btn-primary">목록보기</button>
 			</div>
 		</div>
 		<script>
 			$(function() {
-				//메인 버튼을 눌렀을 때 처리
-	 			$(".btn-warning").click(function() {
-					location.href="home";
-					});
 				//목록 버튼을 눌렀을 때 처리
 				$(".btn-primary").click(function() {
 					location.href = "list";
