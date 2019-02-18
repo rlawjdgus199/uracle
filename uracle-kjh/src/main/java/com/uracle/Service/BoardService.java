@@ -34,4 +34,6 @@ public void update(BoardVO boardVO)  throws Exception;
 //글번호를 가지고 게시글을 삭제하는 메소드
 public void delete(int id);
 
+
+
 }

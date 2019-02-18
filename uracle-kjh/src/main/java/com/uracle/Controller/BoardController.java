@@ -75,7 +75,7 @@ public class BoardController {
 		/*userVo.getUserid();*/
 		List<BoardVO> list = boardService.list();
 		if(userVo==null) {
-			return "redirect:../user/login";
+			return "redirect:/user/login";
 		}
 		else {
 		model.addAttribute("list", list);

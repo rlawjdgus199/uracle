@@ -4,17 +4,17 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="user">
-<!-- 로그인 처리를 위한 sql -->
-<select id="login" resultType="UserVo" parameterType="UserVo">
+	<!-- 로그인 처리를 위한 sql -->
+	<select id="login" resultType="UserVo" parameterType="UserVo">
 
 <![CDATA[ select userid
 from member
 where userid=#{userid} and pw=#{pw}	]]>
 
-</select>
+	</select>
 
 	<insert id="member" parameterType="UserVo">
-	<!-- <![CDATA[]> 안에 있는 쿼리를 평문으로 읽음 --> 
+		<!-- <![CDATA[]> 안에 있는 쿼리를 평문으로 읽음 --> 
 	<![CDATA[
 		insert into 
 			member(userid, name, pw)
@@ -23,5 +23,11 @@ where userid=#{userid} and pw=#{pw}	]]>
 		  )
 	]]>
 	</insert>
+	<select id="idcheck" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM member
+		WHERE
+		userid = #{userid}
+	</select>
+
 
 </mapper>

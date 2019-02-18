@@ -47,13 +47,14 @@
 	</div>
 	
 	
-	<c:if test="${fail != null }">
+	
 		<script>
       	$(function(){
-      		$("#loginfail").html("아이디가 없거나 비밀번호가 틀렸습니다.");
+      		if("${fail}"){
+      		$("#loginfail").text("아이디가 없거나 비밀번호가 틀렸습니다.");
+      	}
       	})
       </script>
-	</c:if>
 
 	<%@ include file="../include/footer.jsp"%>
 

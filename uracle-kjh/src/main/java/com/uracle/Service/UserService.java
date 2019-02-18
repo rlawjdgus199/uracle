@@ -16,4 +16,9 @@ public interface UserService {
 	
 	//회원가입 처리를 위한 메소드
 	public void member(UserVo vo)  throws Exception;
+	
+	//ID중복체크 처리를 위한 메소드
+	public int idcheck(String userid);
+	
+	
 }

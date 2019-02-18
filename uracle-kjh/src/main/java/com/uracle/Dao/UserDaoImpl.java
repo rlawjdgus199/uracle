@@ -35,6 +35,11 @@ public class UserDaoImpl implements UserDao {
 	public void member(UserVo vo) {
 		sqlSession.insert(NAMESPACE + ".member", vo);
 	}
+	
+	@Override
+	public int idcheck(String userid) {
+		return sqlSession.selectOne(NAMESPACE+".idcheck", userid);
+	}
 
 	
 	

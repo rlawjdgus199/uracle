@@ -54,9 +54,9 @@
 					$('#writeBtn').on("click", function(event) {
 						location.href = "register";
 					});
+					
 					$('#logout').on("click", function(event) {
-						
-						location.href = "logout";
+						location.href = "../user/logout";
 				});
 				});
 			</script>

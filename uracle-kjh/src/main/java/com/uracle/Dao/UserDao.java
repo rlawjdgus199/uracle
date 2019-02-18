@@ -15,4 +15,7 @@ public interface UserDao {
 	
 	//회원가입을 처리해주는 메소드
 	public void member(UserVo vo);
+	
+	//ID중복확을 처리해주는 메소드
+	public int idcheck(String userid);
 }
