@@ -24,9 +24,9 @@ where userid=#{userid} and pw=#{pw}	]]>
 	]]>
 	</insert>
 	<select id="idcheck" parameterType="String" resultType="Integer">
-		SELECT COUNT(*) FROM member
+		<![CDATA[SELECT COUNT(*) FROM member
 		WHERE
-		userid = #{userid}
+		userid = #{userid}]]>
 	</select>
 
 

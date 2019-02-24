@@ -21,8 +21,8 @@ public class UserDaoImpl implements UserDao {
 	private static final String NAMESPACE="user";
 	
 	@Override
-	public UserVo login(UserVo vo) {
-		return sqlSession.selectOne(NAMESPACE+".login",vo);
+	public UserVo login(UserVo ve) {
+		return sqlSession.selectOne(NAMESPACE+".login",ve);
 		
 	}
 	
@@ -32,8 +32,8 @@ public class UserDaoImpl implements UserDao {
 	}
 	
 	@Override
-	public void member(UserVo vo) {
-		sqlSession.insert(NAMESPACE + ".member", vo);
+	public void member(UserVo ve) {
+		sqlSession.insert(NAMESPACE + ".member", ve);
 	}
 	
 	@Override

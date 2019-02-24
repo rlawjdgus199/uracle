@@ -35,9 +35,7 @@
 							<a href="member" class="btn btn-default btn-block m-t-md">회원가입</a>
 						</div>
 
-						<div class="form-group">
-							<a href="../board/home" class="btn btn-default btn-block m-t-md">메인으로</a>
-						</div>
+					
 					</form>
 				
 				</div>
@@ -53,7 +51,8 @@
       		if("${fail}"){
       		$("#loginfail").text("아이디가 없거나 비밀번호가 틀렸습니다.");
       	}
-      	})
+      	});
+      
       </script>
 
 	<%@ include file="../include/footer.jsp"%>

@@ -17,8 +17,8 @@ public class UserServiceImpl implements UserService {
 	
 	//회원 로그인 정보
 	@Override
-	public UserVo login(UserVo vo) {
-		return userDao.login(vo);
+	public UserVo login(UserVo ve) {
+		return userDao.login(ve);
 	}
 	
 	
@@ -30,8 +30,8 @@ public class UserServiceImpl implements UserService {
 	
 	//회원 가입
 	@Override
-	public void member(UserVo vo) throws Exception{
-		userDao.member(vo);
+	public void member(UserVo ve) throws Exception{
+		userDao.member(ve);
 		
 	}
 	

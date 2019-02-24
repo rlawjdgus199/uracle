@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,61 +8,70 @@
 </head>
 <body>
 	<%@ include file="../include/header.jsp"%>
+	<p>
+		<b>${sessionScope.login.userid}</b>님이 로그인중입니다.
+	</p>
 	<section class="content">
-		 <form id="form" > 
+		<form id="form">
 			<div class="box">
-				<input type="hidden" name="id" value="${vo.id }"/>
+				<input type="hidden" name="id" value="${vo.id }" />
 
 				<div class="box-header">
 					<h3 class="box-title">상세보기</h3>
 				</div>
 				<div class="box-body">
 					<div class="form-group">
-						<label>제목</label> 
-						<input type="text" name="title" class="form-control" value="${vo.title}" readonly="readonly" />
+						<label>제목</label> <input type="text" name="title"
+							class="form-control" value="${vo.title}" readonly="readonly" />
 					</div>
-	
+
 					<div class="form-group">
 						<label>내용</label>
-						<textarea name="content" rows="5" readonly="readonly" class="form-control">${vo.body}</textarea>
+						<textarea name="content" rows="5" readonly="readonly"
+							class="form-control">${vo.body}</textarea>
 					</div>
-	
+
 					<div class="form-group">
-						<label>작성자</label> 
-						<input type="text" name="writer" class="form-control" value="${vo.writer}" readonly="readonly" />
+						<label>작성자</label> <input type="text" name="writer"
+							class="form-control" value="${vo.writer}" readonly="readonly" />
 					</div>
 				</div>
 				<div class="box-footer">
-					<button class="btn btn-warning">수정</button>
-					<button class="btn btn-danger">삭제</button>
+				
+				
+					 <c:if test="${sessionScope.login.userid==vo.writer}">
+						<button class="btn btn-warning">수정</button> 
+						<button class="btn btn-danger">삭제</button>
+					 </c:if> 
 					<button class="btn btn-primary">목록</button>
 				</div>
 			</div>
-		</form> 
+		</form>
 	</section>
 	<%@ include file="../include/footer.jsp"%>
-	 <script>
-		 $(function() {
+	<script>
+		$(function() {
+
 			//목록 버튼을 눌렀을 때 처리
 			$(".btn-primary").click(function() {
-		  			 $('#form').attr('action', 'list');
+				$('#form').attr('action', 'list');
 			});
 			//수정 버튼을 눌렀을 때 처리
 			$(".btn-warning").click(function() {
 				//location.href = "update?id=" + ${vo.id};
-				 $('#form').attr('method','post');
+				$('#form').attr('method', 'post');
 				$('#form').attr('action', 'updateView');
 				$('#form').submit();
 			});
 			//삭제 버튼을 눌렀을 때 처리
 			$(".btn-danger").click(function() {
-				 $('#form').attr('method','post');
+				$('#form').attr('method', 'post');
 				$('#form').attr('action', 'delete');
 				$('#form').submit();
 			});
 		})
-	</script> 
-	
+	</script>
+
 
 </body>
 </html>

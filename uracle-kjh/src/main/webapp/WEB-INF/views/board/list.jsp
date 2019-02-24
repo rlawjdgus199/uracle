@@ -12,6 +12,7 @@
 <body>
 	<%@include file="../include/header.jsp"%>
 	<div class="box">
+	<p><b>${sessionScope.login.userid}</b>님이 로그인중입니다.</p> 
 		<div class="box-header with-border">
 			<c:if test="${msg == null}">
 				<h3 class="box-title">게시판 목록보기</h3>
@@ -63,7 +64,7 @@
 		</div>
 	</div>
 	<%@include file="../include/footer.jsp"%>
-	<%-- <p>세션이름: <b>${sessionScope.login.userid}</b></p> --%>
+	 
 	
 </body>
 

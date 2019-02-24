@@ -46,8 +46,8 @@ public class UserController {
 	 * "redirect:../user/login"; } //로그인에 성공한 경우 else {
 	 * session.setAttribute("login", result); return "redirect:../board/list"; } }
 	 */
-	public String login(UserVo vo, HttpSession session, RedirectAttributes attr, HttpServletRequest request) {
-		UserVo result = userService.login(vo);
+	public String login(UserVo ve, HttpSession session, RedirectAttributes attr, HttpServletRequest request) {
+		UserVo result = userService.login(ve);
 		// 로그인 실패한 경우
 		if (result == null) {
 			attr.addFlashAttribute("fail", "실패");
@@ -75,10 +75,10 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "member", method = RequestMethod.POST)
-	public String memberPOST(UserVo vo, RedirectAttributes rttr) {
-
+	public String memberPOST(UserVo ve, RedirectAttributes rttr) {
 		try {
-			userService.member(vo);
+
+			userService.member(ve);
 			rttr.addFlashAttribute("msg", "회원가입에  성공하셨습니다.");
 		} catch (Exception e) {
 			rttr.addFlashAttribute("msg", "회원가입에  실패하셨습니다.");
@@ -86,19 +86,18 @@ public class UserController {
 		}
 		return "redirect:/user/login";
 	}
-	
-	@RequestMapping("/idcheck.do")
-    @ResponseBody
-    public Map<Object, Object> idcheck(@RequestBody String userid) {
-        
-		int count = 0;
-        Map<Object, Object> map = new HashMap<Object, Object>();
- 
-        count = userService.idcheck(userid);
-        map.put("cnt", count);
- 
-        return map;
-    }
 
+	@RequestMapping(value = "idcheck.do")
+	@ResponseBody
+	public Map<Object, Object> idcheck(@RequestBody String userid) {
+
+		int count = 0;
+		Map<Object, Object> map = new HashMap<Object, Object>();
+
+		count = userService.idcheck(userid);
+		map.put("cnt", count);
+
+		return map;
+	}
 
 }
